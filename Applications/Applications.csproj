@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <None Remove="UnitTests\" />
+    <None Remove="UnitTests\Fixtures\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UnitTests\" />
+    <Folder Include="UnitTests\Fixtures\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="xunit" Version="2.6.6" />

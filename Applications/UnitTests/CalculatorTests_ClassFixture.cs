@@ -3,11 +3,11 @@ using Xunit.Abstractions;
 
 namespace Applications.UnitTests
 {
-    public class CalculatorTests_SharedObject: IClassFixture<Calculator>
+    public class CalculatorTests_ClassFixture : IClassFixture<Calculator>
 	{
 		private Calculator _sut;
         private readonly ITestOutputHelper _output;
-        public CalculatorTests_SharedObject(Calculator calculator, ITestOutputHelper output)
+        public CalculatorTests_ClassFixture(Calculator calculator, ITestOutputHelper output)
         {
 			_sut = calculator;
             _output = output;

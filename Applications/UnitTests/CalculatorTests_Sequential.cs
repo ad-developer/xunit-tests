@@ -9,7 +9,7 @@ namespace Applications.UnitTests
         private readonly int _delay; 
 		public CalculatorTests_Sequential()
 		{
-            _delay = 500;
+            _delay = 0;
 		}
 
         [Fact]
