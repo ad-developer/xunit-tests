@@ -29,11 +29,23 @@ namespace Applications.UnitTests
 				 Phone = "333.333.4444"
 			};
 			
-			var customerSet = Substitute.For<DbSet<Customer>>();
-			var entry = Substitute.For<EntityEntry<Customer>>();
-			entry.Entity.Returns(customerFixture);
+			var customerSet = Substitute.For<DbSet<Customer>, IQueryable<Customer>>();
 
-            customerSet.Add(customerFixture).Returns(entry);
+            var customers = new List<Customer>();
+            var data = customers.AsQueryable();
+
+            customerSet.Add(Arg.Do<Customer>(foo =>
+            {
+                customers.Add(customerFixture);
+                // at this point you have to recreate the added IQueryable
+                data = customers.AsQueryable();
+                // rest of code you had to add this to the mockDbSet
+            }));
+
+            //var entry = Substitute.For<EntityEntry<Customer>>();
+			//entry.Entity.Returns(customerFixture);
+
+            //customerSet.Add(customerFixture).Returns(entry);
             
             _context.Customers.Returns(customerSet);
 
