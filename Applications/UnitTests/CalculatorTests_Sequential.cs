@@ -13,6 +13,7 @@ namespace Applications.UnitTests
 		}
 
         [Fact]
+        [Trait("Application", "Calculator")]
         public void AddTest()
         {
             var sut = new Calculator();
@@ -26,6 +27,7 @@ namespace Applications.UnitTests
 
         [Theory]
         [ClassData(typeof(CalculatorTestData))]
+        [Trait("Application", "Calculator")]
         public void AddTest_Theory_ClassData(decimal expected, decimal firstOp, decimal secondOp)
         {
             var sut = new Calculator();

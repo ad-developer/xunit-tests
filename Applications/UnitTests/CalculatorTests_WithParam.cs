@@ -17,6 +17,7 @@ namespace Applications.UnitTests
         [InlineData(2, 1, 1)]
         [InlineData(15, 5, 10)]
         [InlineData(0, -15, 15)]
+        [Trait("Application", "Calculator")]
         public void AddTest_Theory_InlineData(decimal expected, decimal firstOp, decimal secondOp)
         {
             var sut = new Calculator();
@@ -37,6 +38,7 @@ namespace Applications.UnitTests
         /// <param name="secondOp"></param>
         [Theory]
         [MemberData(nameof(GetParamData), parameters: 3)]
+        [Trait("Application", "Calculator")]
         public void AddTest_Theory_MemberData(decimal expected, decimal firstOp, decimal secondOp)
         {
             var sut = new Calculator();

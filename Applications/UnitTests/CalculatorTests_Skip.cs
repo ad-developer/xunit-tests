@@ -9,6 +9,7 @@ namespace Applications.UnitTests
 		}
 
         [Fact(Skip = "Need a reason")]
+        [Trait("Application", "Calculator")]
         public void AddTest_Skip()
         {
             var sut = new Calculator();

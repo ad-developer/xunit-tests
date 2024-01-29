@@ -14,6 +14,7 @@ namespace Applications.UnitTests
         }
 
         [Fact]
+        [Trait("Application", "Calculator")]
         public void AddTest()
         {
             var res = _sut.Add(1, 1);
@@ -25,6 +26,7 @@ namespace Applications.UnitTests
 
         [Theory]
         [ClassData(typeof(CalculatorTestData))]
+        [Trait("Application", "Calculator")]
         public void AddTest_Theory_ClassData(decimal expected, decimal firstOp, decimal secondOp)
         {
             var res = _sut.Add(firstOp, secondOp);

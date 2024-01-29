@@ -10,7 +10,7 @@ namespace Applications.UnitTests
 
 
     [Collection(name: "Guid Generator")]
-	public class GuidGeneratorTestOne 
+    public class GuidGeneratorTestOne 
 	{
         private readonly GuidGenerator _guidGenerator;
         private readonly ITestOutputHelper _output;
@@ -22,6 +22,8 @@ namespace Applications.UnitTests
         }
 
         [Fact]
+        [Trait("Application", "Guid Generator")]
+        [Trait("Category", "Collection Definition")]
         void GuidTest()
         {
             var guid = _guidGenerator.RandomGuid;
@@ -43,6 +45,7 @@ namespace Applications.UnitTests
 
 
         [Fact]
+        [Trait("Application", "Guid Generator")]
         void GuidTest()
         {
             var guid = _guidGenerator.RandomGuid;

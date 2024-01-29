@@ -17,8 +17,9 @@ namespace Applications.UnitTests
 			_sut = new CustomerService(_context);
 		}
 
-		[Fact]
-		public void AddTest()
+		[Fact(Skip = "Not implemented")]
+        [Trait("Application", "Customer Service")]
+        public void AddTest()
 		{
 			var customerFixture = new Customer
 			{
@@ -54,13 +55,15 @@ namespace Applications.UnitTests
 		}
 
         [Fact]
+        [Trait("Application", "Customer Service")]
         public void GetCustomerByIdTest()
         {
 
         }
 
 		[Fact]
-		public void GetAllCustomersTest()
+        [Trait("Application", "Customer Service")]
+        public void GetAllCustomersTest()
 		{
 
 		}

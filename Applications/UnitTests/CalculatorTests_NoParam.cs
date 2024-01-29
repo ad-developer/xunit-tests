@@ -9,6 +9,7 @@ namespace Applications.UnitTests
 		}
 
         [Fact]
+        [Trait("Application", "Calculator")]
         public void AddTest()
         {
             var sut = new Calculator();

@@ -27,7 +27,7 @@ namespace TestRunner
             var testAssembly = args[0];
             var typeName = args.Length == 2 ? args[1] : null;
             
-            using (var runner = AssemblyRunner.WithAppDomain(testAssembly))
+            using (var runner = AssemblyRunner.WithoutAppDomain(testAssembly))
             {
                 runner.OnDiscoveryComplete = OnDiscoveryComplete;
                 runner.OnExecutionComplete = OnExecutionComplete;
