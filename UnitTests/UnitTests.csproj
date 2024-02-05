@@ -10,8 +10,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
-    <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+    <PackageReference Include="xunit" Version="2.6.6" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -21,4 +21,26 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Fixtures\" />
+    <None Remove="TestData\" />
+    <None Remove="Tests\" />
+    <None Remove="Tests\SimpleTest\" />
+    <None Remove="Helpers\" />
+    <None Remove="Tests\AdvancedTest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fixtures\" />
+    <Folder Include="TestData\" />
+    <Folder Include="Tests\" />
+    <Folder Include="Tests\SimpleTest\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Tests\AdvancedTest\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Applications\Applications.csproj" />
+    <ProjectReference Include="..\MinimalApi\MinimalApi.csproj" />
+    <ProjectReference Include="..\WebApi\WebApi.csproj" />
+    <ProjectReference Include="..\WebApp\WebApp.csproj" />
+  </ItemGroup>
 </Project>

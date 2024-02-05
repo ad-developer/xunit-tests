@@ -1,36 +1,34 @@
 ﻿using Applications.CustormerApp;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NSubstitute;
-using Xunit;
 
-namespace Applications.UnitTests
+namespace UnitTests.Tests.AdvancedTest
 {
-    public class CustomerServiceTests
+    public class TestMockSubsctitute
 	{
-		private readonly ICustomerService _sut;
-		private readonly IApplicationDBContext _context;
+        private readonly ICustomerService _sut;
+        private readonly IApplicationDBContext _context;
 
-		public CustomerServiceTests()
+        public TestMockSubsctitute()
 		{
-			_context = Substitute.For<IApplicationDBContext>();
-			_sut = new CustomerService(_context);
-		}
+            _context = Substitute.For<IApplicationDBContext>();
+            _sut = new CustomerService(_context);
+        }
 
-		[Fact(Skip = "Not implemented")]
+        [Fact(Skip = "Not implemented")]
         [Trait("Application", "Customer Service")]
         public void AddTest()
-		{
-			var customerFixture = new Customer
-			{
-				 Id = 3,
-				 FirstName = "John",
-				 LastName = "Smith",
-				 Email = "John.Smith@email.com",
-				 Phone = "333.333.4444"
-			};
-			
-			var customerSet = Substitute.For<DbSet<Customer>, IQueryable<Customer>>();
+        {
+            var customerFixture = new Customer
+            {
+                Id = 3,
+                FirstName = "John",
+                LastName = "Smith",
+                Email = "John.Smith@email.com",
+                Phone = "333.333.4444"
+            };
+
+            var customerSet = Substitute.For<DbSet<Customer>, IQueryable<Customer>>();
 
             var customers = new List<Customer>();
             var data = customers.AsQueryable();
@@ -44,15 +42,15 @@ namespace Applications.UnitTests
             }));
 
             //var entry = Substitute.For<EntityEntry<Customer>>();
-			//entry.Entity.Returns(customerFixture);
+            //entry.Entity.Returns(customerFixture);
 
             //customerSet.Add(customerFixture).Returns(entry);
-            
+
             _context.Customers.Returns(customerSet);
 
-			_sut.Add(customerFixture);
-			Assert.True(customerFixture.Id == 3, "Customer Id must be greater that 0");		
-		}
+            _sut.Add(customerFixture);
+            Assert.True(customerFixture.Id == 3, "Customer Id must be greater that 0");
+        }
 
         [Fact]
         [Trait("Application", "Customer Service")]
@@ -61,11 +59,12 @@ namespace Applications.UnitTests
 
         }
 
-		[Fact]
+        [Fact]
         [Trait("Application", "Customer Service")]
         public void GetAllCustomersTest()
-		{
+        {
 
-		}
+        }
     }
 }
+

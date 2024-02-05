@@ -1,7 +1,7 @@
-﻿namespace Applications.UnitTests
+﻿namespace UnitTests.TestData
 {
-	public class CalculatorTestData : IEnumerable<object[]>
-	{
+    public class CalculatorTestData : IEnumerable<object[]>
+    {
         public IEnumerator<object[]> GetEnumerator()
         {
             yield return new object[] { 3, 1, 2 };

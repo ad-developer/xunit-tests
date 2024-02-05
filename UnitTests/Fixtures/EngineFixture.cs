@@ -1,11 +1,12 @@
-﻿using System;
-namespace Applications.UnitTests.Fixtures
+﻿using Applications;
+
+namespace UnitTests.Fixtures
 {
-	public class EngineFixture : IEngine
-	{
-		public EngineFixture()
-		{
-		}
+    public class EngineFixture : IEngine
+    {
+        public EngineFixture()
+        {
+        }
 
         public void Start()
         {
@@ -17,5 +18,4 @@ namespace Applications.UnitTests.Fixtures
             //throw new NotImplementedException();
         }
     }
-}
 
