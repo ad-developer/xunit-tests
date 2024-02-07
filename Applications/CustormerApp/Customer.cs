@@ -1,7 +1,7 @@
 ﻿namespace Applications.CustormerApp
 {
-	public class Customer
-	{
+	public class Customer : Entity
+    {
 		public int Id { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }

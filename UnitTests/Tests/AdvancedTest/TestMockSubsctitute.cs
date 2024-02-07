@@ -1,6 +1,7 @@
 ﻿using Applications.CustormerApp;
 using Microsoft.EntityFrameworkCore;
 using NSubstitute;
+using UnitTests.Fixtures;
 
 namespace UnitTests.Tests.AdvancedTest
 {
@@ -11,45 +12,31 @@ namespace UnitTests.Tests.AdvancedTest
 
         public TestMockSubsctitute()
 		{
-            _context = Substitute.For<IApplicationDBContext>();
+            var customers = new List<Customer>(); 
+            _context = ApplicationDbContextFixture.Create(customers);
+
             _sut = new CustomerService(_context);
         }
 
-        [Fact(Skip = "Not implemented")]
+        [Fact]
         [Trait("Application", "Customer Service")]
         public void AddTest()
         {
+
             var customerFixture = new Customer
             {
-                Id = 3,
+                Id = 0,
                 FirstName = "John",
                 LastName = "Smith",
                 Email = "John.Smith@email.com",
                 Phone = "333.333.4444"
             };
 
-            var customerSet = Substitute.For<DbSet<Customer>, IQueryable<Customer>>();
-
-            var customers = new List<Customer>();
-            var data = customers.AsQueryable();
-
-            customerSet.Add(Arg.Do<Customer>(foo =>
-            {
-                customers.Add(customerFixture);
-                // at this point you have to recreate the added IQueryable
-                data = customers.AsQueryable();
-                // rest of code you had to add this to the mockDbSet
-            }));
-
-            //var entry = Substitute.For<EntityEntry<Customer>>();
-            //entry.Entity.Returns(customerFixture);
-
-            //customerSet.Add(customerFixture).Returns(entry);
-
-            _context.Customers.Returns(customerSet);
-
             _sut.Add(customerFixture);
-            Assert.True(customerFixture.Id == 3, "Customer Id must be greater that 0");
+            var customer = _context.Customers.First();
+           
+            Assert.True(customer.Id > 0, $"Customer Id is {customer.Id} and it's more than 0");
+            Assert.True(customer.FirstName == "John", "Customer first name is John");
         }
 
         [Fact]

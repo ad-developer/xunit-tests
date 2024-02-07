@@ -11,10 +11,10 @@
 
         public int Add(Customer customer)
         {
-            var savedCustomer = _applicationDBContext.Customers.Add(customer);
+            _applicationDBContext.Customers.Add(customer);
             _applicationDBContext.SaveChanges();
 
-            return savedCustomer.Entity.Id;
+            return customer.Id;
         }
 
         public List<Customer> GetAllCustomers()
