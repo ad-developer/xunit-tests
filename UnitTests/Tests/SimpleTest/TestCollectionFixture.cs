@@ -7,7 +7,7 @@ namespace UnitTests.Tests.SimpleTest
     [CollectionDefinition(name: "Guid Generator")]
     public class GuidGeneratorDefinition : ICollectionFixture<GuidGenerator> { }
 
-
+    [Collection(name: "Guid Generator")]
     public class TestCollectionFixtureOne
 	{
         private readonly GuidGenerator _sut;
@@ -33,6 +33,7 @@ namespace UnitTests.Tests.SimpleTest
         }
     }
 
+    [Collection(name: "Guid Generator")]
     public class TestCollectionFixtureTwo
     {
         private readonly GuidGenerator _sut;
@@ -58,6 +59,7 @@ namespace UnitTests.Tests.SimpleTest
         }
     }
 
+    [Collection(name: "Guid Generator")]
     public class TestCollectionFixtureThree
     {
         private readonly GuidGenerator _sut;

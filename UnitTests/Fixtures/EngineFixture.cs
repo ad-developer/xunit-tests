@@ -18,4 +18,5 @@ namespace UnitTests.Fixtures
             //throw new NotImplementedException();
         }
     }
+}
 
