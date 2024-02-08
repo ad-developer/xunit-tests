@@ -1,11 +1,8 @@
 ﻿using System;
 namespace Applications.CustormerApp
 {
-	public class Entity
+	public class Entity : IEntity
 	{
-		public Entity()
-		{
-		}
-	}
+        public int Id { get; set; }
+    }
 }
-

@@ -1,10 +1,10 @@
 ﻿namespace Applications.CustormerApp
 {
-	public class CustomerService : ICustomerService
+	public class CustomerServiceOne : ICustomerService
     {
         private readonly IApplicationDBContext _applicationDBContext;
 
-		public CustomerService(IApplicationDBContext applicationDBContext)
+		public CustomerServiceOne(IApplicationDBContext applicationDBContext)
 		{
             _applicationDBContext = applicationDBContext;
 		}
