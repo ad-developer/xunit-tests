@@ -5,7 +5,7 @@ using NSubstitute;
 namespace UnitTests.Fixtures
 {
     public class GenericApplicationDbContextFixture<T>
-    where T : Entity
+    where T : class, IEntity
     {
         public static IApplicationDBContext Create() => Create(new List<T>());
 
@@ -25,8 +25,10 @@ namespace UnitTests.Fixtures
                 var rnd = new Random();
                 var num = rnd.Next();
 
-                info.Arg<T>().Id = num;
-                entities.Add(info.Arg<T>());
+                var ent = info.Arg<T>();
+                ent.Id = num;
+
+                entities.Add(ent);
             });
             mockSet.When(set => set.Remove(Arg.Any<T>())).Do(info => entities.Remove(info.Arg<T>()));
 
